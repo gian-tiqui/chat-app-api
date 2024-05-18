@@ -11,17 +11,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class UserDto {
+public class ReqRes {
 
-  private Long id;
+  private String error;
+  private String message;
+  private Integer status;
+  private String token;
+  private String refreshToken;
+  private String expirationTime;
   private String email;
   private String password;
   private String role;
-  private String firstName;
-  private String middleName;
-  private String lastName;
-  private Integer birthYear;
-  private Integer birthMonth;
-  private Integer birthDate;
-  private String sex;
+  private UserDto userDto;
 }
