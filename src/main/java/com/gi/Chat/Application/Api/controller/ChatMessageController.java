@@ -20,4 +20,6 @@ public class ChatMessageController {
   public ResponseEntity<Object> saveMessage(@RequestBody ChatMessageDto chatMessageDto) {
     return ResponseEntity.ok(chatMessageService.saveMessage(chatMessageDto));
   }
+
+
 }
