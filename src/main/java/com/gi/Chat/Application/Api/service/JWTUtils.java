@@ -18,7 +18,8 @@ public class JWTUtils {
 
   private final SecretKey secretKey;
   // 24 HRS
-  private static final Long EXPIRATION_TIME = 86400000L;
+  private static final Long TOKEN_EXPIRATION_TIME = 86400000L;
+  private static final Long REFRESH_TOKEN_EXPIRATION_TIME = 86400000L * 2L;
 
   public JWTUtils() {
     String secretStr = "KLNAMSKDLJNAKSDJKASHDNAJHDA189723781623178GBHJQGSDBHGQW8712634781JHBQGHEWHASDASDAAS1231234235SDFSG";
@@ -32,7 +33,7 @@ public class JWTUtils {
     return Jwts.builder()
         .subject(userDetails.getUsername())
         .issuedAt(new Date(System.currentTimeMillis()))
-        .expiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
+        .expiration(new Date(System.currentTimeMillis() + TOKEN_EXPIRATION_TIME))
         .signWith(secretKey)
         .compact();
   }
@@ -43,7 +44,7 @@ public class JWTUtils {
         .claims(claims)
         .subject(userDetails.getUsername())
         .issuedAt(new Date(System.currentTimeMillis()))
-        .expiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
+        .expiration(new Date(System.currentTimeMillis() + REFRESH_TOKEN_EXPIRATION_TIME))
         .signWith(secretKey)
         .compact();
   }

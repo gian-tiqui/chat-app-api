@@ -35,6 +35,8 @@ public class SecurityConfig {
             .permitAll()
             .requestMatchers("/message/**")
             .hasAnyAuthority("USER", "ADMIN")
+            .requestMatchers("/api/v1/chat/**")
+            .hasAnyAuthority("USER", "ADMIN")
             .anyRequest()
             .authenticated())
         .sessionManagement(manager -> manager.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

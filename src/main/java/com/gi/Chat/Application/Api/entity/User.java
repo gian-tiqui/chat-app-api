@@ -31,6 +31,7 @@ public class User implements UserDetails {
   private Integer birthMonth;
   private Integer birthDate;
   private String sex;
+  private Boolean online;
 
   @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {
