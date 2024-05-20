@@ -33,6 +33,8 @@ public class SecurityConfig {
         .authorizeHttpRequests(request -> request
             .requestMatchers("/auth/**")
             .permitAll()
+            .requestMatchers("/ws/**")
+            .permitAll()
             .requestMatchers("/message/**")
             .hasAnyAuthority("USER", "ADMIN")
             .requestMatchers("/api/v1/chat/**")
